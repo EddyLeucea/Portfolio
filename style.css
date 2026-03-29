@@ -1292,9 +1292,15 @@ main {
 }
 
 .dsc-member-avatar {
-    width: 2.2rem;
-    height: 2.2rem;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+    display: block;
+}
+
+.dsc-member-avatar-fallback {
     display: grid;
     place-items: center;
     background: linear-gradient(135deg, rgba(255, 126, 95, 0.32), rgba(254, 180, 123, 0.32));

@@ -236,6 +236,26 @@
             .replace(/>/g, '&gt;')
             .replace(/"/g, '&quot;')
             .replace(/'/g, '&#39;');
+        const renderMemberAvatar = (member) => {
+            const username = escapeHtml(member.username || 'Member');
+            const initial = escapeHtml((member.username || '?').charAt(0).toUpperCase());
+            const avatarUrl = member.avatar_url ? escapeHtml(member.avatar_url) : '';
+
+            if (!avatarUrl) {
+                return `<span class="dsc-member-avatar dsc-member-avatar-fallback">${initial}</span>`;
+            }
+
+            return `
+                <img
+                    class="dsc-member-avatar"
+                    src="${avatarUrl}"
+                    alt="${username} avatar"
+                    loading="lazy"
+                    referrerpolicy="no-referrer"
+                    onerror="this.onerror=null; this.outerHTML='<span class=&quot;dsc-member-avatar dsc-member-avatar-fallback&quot;>${initial}</span>';"
+                >
+            `;
+        };
 
         async function fetchDiscordServer() {
             try {
@@ -272,7 +292,7 @@
                             <div class="dsc-members-list">
                                 ${onlineMembers.length ? onlineMembers.map((member) => `
                                     <div class="dsc-member">
-                                        <span class="dsc-member-avatar">${escapeHtml((member.username || '?').charAt(0).toUpperCase())}</span>
+                                        ${renderMemberAvatar(member)}
                                         <div class="dsc-member-copy">
                                             <span class="dsc-member-name">${escapeHtml(member.username || 'Member')}</span>
                                             <span class="dsc-member-status">${escapeHtml(member.status || 'online')}</span>
