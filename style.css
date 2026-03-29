@@ -640,4 +640,56 @@ main {
     .glass-panel {
         padding: 2rem;
     }
+}
+
+/* Background Falling Cubes */
+.falling-cube-wrapper {
+    position: absolute; /* Controlled by translate3d */
+    pointer-events: none;
+    transform-style: preserve-3d;
+    will-change: transform;
+    /* Opacity set dynamically in JS */
+    transition: opacity 0.3s ease;
+}
+
+.cube-scaler {
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    /* Smooth zoom on touch */
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.falling-cube-wrapper.pulsing .cube-scaler {
+    transform: scale(2.0); /* Pulse expansion size */
+}
+
+.cube-rotator {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    animation: rotateCube linear infinite;
+}
+
+.cube-face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 1.5px solid #00f0ff;
+    box-shadow: 0 0 10px #00f0ff, inset 0 0 6px #00f0ff;
+    background: rgba(0, 0, 0, 0.4);
+}
+
+/* 3D Sides positioned dynamically based on size */
+.cube-face.front  { transform: rotateY(0deg) translateZ(var(--tz)); }
+.cube-face.back   { transform: rotateY(180deg) translateZ(var(--tz)); }
+.cube-face.right  { transform: rotateY(90deg) translateZ(var(--tz)); }
+.cube-face.left   { transform: rotateY(-90deg) translateZ(var(--tz)); }
+.cube-face.top    { transform: rotateX(90deg) translateZ(var(--tz)); }
+.cube-face.bottom { transform: rotateX(-90deg) translateZ(var(--tz)); }
+
+@keyframes rotateCube {
+    0% { transform: rotateX(0deg) rotateY(0deg); }
+    100% { transform: rotateX(360deg) rotateY(360deg); }
 }
