@@ -672,7 +672,8 @@ main {
 
 /* Background Falling Cubes */
 .falling-cube-wrapper {
-    position: absolute; /* Controlled by translate3d */
+    position: absolute;
+    /* Controlled by translate3d */
     pointer-events: none;
     transform-style: preserve-3d;
     will-change: transform;
@@ -689,7 +690,8 @@ main {
 }
 
 .falling-cube-wrapper.pulsing .cube-scaler {
-    transform: scale(2.0); /* Pulse expansion size */
+    transform: scale(2.0);
+    /* Pulse expansion size */
 }
 
 .cube-rotator {
@@ -710,16 +712,38 @@ main {
 }
 
 /* 3D Sides positioned dynamically based on size */
-.cube-face.front  { transform: rotateY(0deg) translateZ(var(--tz)); }
-.cube-face.back   { transform: rotateY(180deg) translateZ(var(--tz)); }
-.cube-face.right  { transform: rotateY(90deg) translateZ(var(--tz)); }
-.cube-face.left   { transform: rotateY(-90deg) translateZ(var(--tz)); }
-.cube-face.top    { transform: rotateX(90deg) translateZ(var(--tz)); }
-.cube-face.bottom { transform: rotateX(-90deg) translateZ(var(--tz)); }
+.cube-face.front {
+    transform: rotateY(0deg) translateZ(var(--tz));
+}
+
+.cube-face.back {
+    transform: rotateY(180deg) translateZ(var(--tz));
+}
+
+.cube-face.right {
+    transform: rotateY(90deg) translateZ(var(--tz));
+}
+
+.cube-face.left {
+    transform: rotateY(-90deg) translateZ(var(--tz));
+}
+
+.cube-face.top {
+    transform: rotateX(90deg) translateZ(var(--tz));
+}
+
+.cube-face.bottom {
+    transform: rotateX(-90deg) translateZ(var(--tz));
+}
 
 @keyframes rotateCube {
-    0% { transform: rotateX(0deg) rotateY(0deg); }
-    100% { transform: rotateX(360deg) rotateY(360deg); }
+    0% {
+        transform: rotateX(0deg) rotateY(0deg);
+    }
+
+    100% {
+        transform: rotateX(360deg) rotateY(360deg);
+    }
 }
 
 /* Lanyard Status & Hero 2-Column */
@@ -742,7 +766,7 @@ main {
 
 .discord-card:hover {
     transform: translateY(-6px);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4), 0 15px 40px -15px var(--status-color, rgba(255,255,255,0.1));
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4), 0 15px 40px -15px var(--status-color, rgba(255, 255, 255, 0.1));
 }
 
 .discord-header {
@@ -789,7 +813,8 @@ main {
     width: 16px;
     height: 16px;
     border-radius: 50%;
-    border: 3px solid #1a1b26; /* Match dark background roughly, or glass bg */
+    border: 3px solid #1a1b26;
+    /* Match dark background roughly, or glass bg */
     box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.7);
     animation: pulseDot 2s infinite;
 }
@@ -863,37 +888,72 @@ main {
 }
 
 .spotify-progress-inner {
-    width: 35%; /* Fixed static visual */
+    width: 35%;
+    /* Fixed static visual */
     height: 100%;
     background: #1DB954;
     border-radius: 2px;
 }
 
 @keyframes pulseDot {
-    0% { transform: scale(0.95); box-shadow: 0 0 0 0 var(--status-color, rgba(255, 255, 255, 0.7)); }
-    70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(0, 0, 0, 0); }
-    100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(0, 0, 0, 0); }
+    0% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 var(--status-color, rgba(255, 255, 255, 0.7));
+    }
+
+    70% {
+        transform: scale(1);
+        box-shadow: 0 0 0 6px rgba(0, 0, 0, 0);
+    }
+
+    100% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+    }
 }
 
 @media (max-width: 768px) {
     .hero {
         grid-template-columns: 1fr;
-        padding-left: 5vw;
-        padding-right: 5vw;
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
         padding-bottom: 4rem;
         gap: 3rem;
+        /* Reset desktop asymmetric padding */
+        justify-items: center;
     }
+
     .hero-content {
         align-items: center;
         text-align: center;
-    }
-    .hero-actions {
-        justify-content: center;
-    }
-    .hero-right {
-        justify-content: center;
-    }
-    .discord-card {
+        width: 100%;
         max-width: 100%;
     }
-}
+
+    .hero-title {
+        font-size: clamp(2rem, 9vw, 3.5rem);
+        word-wrap: break-word;
+        width: 100%;
+    }
+
+    .hero-description {
+        max-width: 100%;
+    }
+
+    .hero-actions {
+        justify-content: center;
+        width: 100%;
+    }
+
+    .hero-right {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+
+    .discord-card {
+        width: 100%;
+        max-width: 420px;
+    }
+}
