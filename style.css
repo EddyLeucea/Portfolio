@@ -258,14 +258,14 @@ main {
 .hero {
     min-height: 100vh;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    padding-top: 5rem;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding-top: 12rem;
 }
 
 .hero-content {
     max-width: 800px;
-    text-align: center;
+    text-align: left;
 }
 
 .hero-tagline {
@@ -279,7 +279,7 @@ main {
 }
 
 .hero-title {
-    font-size: clamp(3rem, 8vw, 5rem);
+    font-size: clamp(3.5rem, 8vw, 6rem);
     line-height: 1.1;
     margin-bottom: 1.5rem;
     background: linear-gradient(to right, #ffffff, var(--text-muted));
@@ -292,13 +292,12 @@ main {
     color: var(--text-muted);
     margin-bottom: 2.5rem;
     max-width: 600px;
-    margin-inline: auto;
 }
 
 .hero-actions {
     display: flex;
     gap: 1.5rem;
-    justify-content: center;
+    justify-content: flex-start;
 }
 
 /* Highlight Strip */
