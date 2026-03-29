@@ -1,165 +1,129 @@
 (function() {
-    // Dynamically inject canvas perfectly behind the content so it takes up no layout space
-    const canvas = document.createElement('canvas');
-    canvas.id = 'bg-canvas';
-    canvas.style.position = 'fixed';
-    canvas.style.top = '0';
-    canvas.style.left = '0';
-    canvas.style.width = '100vw';
-    canvas.style.height = '100vh';
-    canvas.style.zIndex = '-1';
-    canvas.style.pointerEvents = 'none'; // Essential so buttons remain clickable!
-    document.body.prepend(canvas);
+    // 1. Setup the Non-Interactable Background Container
+    const container = document.createElement('div');
+    container.id = 'falling-cubes-container';
+    container.style.position = 'fixed';
+    container.style.top = '0';
+    container.style.left = '0';
+    container.style.width = '100vw';
+    container.style.height = '100vh';
+    container.style.zIndex = '-1';
+    container.style.pointerEvents = 'none';
+    container.style.overflow = 'hidden';
+    document.body.prepend(container);
 
-    const ctx = canvas.getContext('2d');
-    let width, height;
-
-    function resize() {
-        width = window.innerWidth;
-        height = window.innerHeight;
-        canvas.width = width;
-        canvas.height = height;
-    }
-    window.addEventListener('resize', resize);
-    resize();
-
-    // Standard local coordinates for an 8-pointed 3D cube
-    const vertices = [
-        [-1, -1, -1], [1, -1, -1], [1, 1, -1], [-1, 1, -1],
-        [-1, -1, 1], [1, -1, 1], [1, 1, 1], [-1, 1, 1]
-    ];
-    // Line assignments to link the 8 points into 12 edges
-    const edges = [
-        [0, 1], [1, 2], [2, 3], [3, 0], // front face
-        [4, 5], [5, 6], [6, 7], [7, 4], // back face
-        [0, 4], [1, 5], [2, 6], [3, 7]  // connecting lines
-    ];
-
+    // 2. Track Mouse for Collision Distance
     let mouseX = -1000;
     let mouseY = -1000;
-    
-    // Track mouse specifically for collision
     window.addEventListener('mousemove', (e) => {
         mouseX = e.clientX;
         mouseY = e.clientY;
     });
 
-    class Cube {
+    // 3. Define the Physical Falling DOM Cube
+    const isMobile = window.matchMedia("(max-width: 768px)").matches;
+    const numCubes = isMobile ? 8 : 20;
+    const cubes = [];
+
+    class DOMCube {
         constructor() {
+            // Main positional wrapper
+            this.element = document.createElement('div');
+            this.element.className = 'falling-cube-wrapper';
+            
+            // Contains the scale pulsing animation independent of position
+            const scaler = document.createElement('div');
+            scaler.className = 'cube-scaler';
+            
+            // Rotates all the 3D faces continuously
+            const rotator = document.createElement('div');
+            rotator.className = 'cube-rotator';
+            
+            // Construct the 6 physical faces
+            const faces = ['front', 'back', 'right', 'left', 'top', 'bottom'];
+            faces.forEach(face => {
+                const faceDiv = document.createElement('div');
+                faceDiv.className = `cube-face ${face}`;
+                rotator.appendChild(faceDiv);
+            });
+            
+            scaler.appendChild(rotator);
+            this.element.appendChild(scaler);
+            container.appendChild(this.element);
+
             this.reset(true);
         }
 
         reset(randomY = false) {
-            this.x = Math.random() * width;
-            this.y = randomY ? Math.random() * height : -50; 
-            this.size = 15 + Math.random() * 20; // 15px to 35px
-            this.speed = 0.5 + Math.random() * 1.5; // fall speed
-            this.rx = Math.random() * Math.PI * 2;
-            this.ry = Math.random() * Math.PI * 2;
-            this.rxSpeed = (Math.random() - 0.5) * 0.02;
-            this.rySpeed = (Math.random() - 0.5) * 0.02;
-            this.pulseTimer = 0;
-            this.baseOpacity = 0.4 + Math.random() * 0.2; // 0.4 to 0.6 opacity
+            this.size = 15 + Math.random() * 20; // Box sizes between 15px and 35px
+            this.x = Math.random() * window.innerWidth;
+            this.y = randomY ? Math.random() * window.innerHeight : -this.size - 50;
+            this.speed = 0.5 + Math.random() * 1.5; // Float down speed
+            
+            // Set rotation logic inside CSS via variables and styles directly
+            const duration = 3 + Math.random() * 7; 
+            const rotNode = this.element.querySelector('.cube-rotator');
+            rotNode.style.animationDuration = `${duration}s`;
+            rotNode.style.animationDirection = Math.random() > 0.5 ? 'normal' : 'reverse';
+
+            // Establish proportional 3D dimensions via CSS variables
+            this.element.style.width = `${this.size}px`;
+            this.element.style.height = `${this.size}px`;
+            this.element.style.setProperty('--tz', `${this.size / 2}px`);
+            
+            // Random base opacity so some look further away
+            this.element.style.opacity = (0.2 + Math.random() * 0.4).toFixed(2);
+            
+            this.updateTransform();
+        }
+
+        updateTransform() {
+            // Apply coordinates smoothly 
+            this.element.style.transform = `translate3d(${this.x}px, ${this.y}px, 0)`;
         }
 
         update() {
             this.y += this.speed;
-            this.rx += this.rxSpeed;
-            this.ry += this.rySpeed;
+            this.updateTransform();
 
-            // Trigger mouse collision physics (roughly 80px interaction radius around center)
-            const dx = this.x - mouseX;
-            const dy = this.y - mouseY;
+            // 4. Mouse Collision Check
+            const centerX = this.x + this.size / 2;
+            const centerY = this.y + this.size / 2;
+            const dx = centerX - mouseX;
+            const dy = centerY - mouseY;
             const dist = Math.sqrt(dx * dx + dy * dy);
-            
+
+            // If mouse is within 80px, add a scale-up class.
             if (dist < 80) {
-                // If touched, fully set pulse timer to max (~400ms decay)
-                this.pulseTimer = 24;
+                this.element.classList.add('pulsing');
+                // Temporarily boost opacity fully!
+                this.element.style.opacity = '1';
+            } else {
+                this.element.classList.remove('pulsing');
+                // Revert opacity naturally (CSS transitions not used on opacity directly to avoid flickering, 
+                // but the size scale transitions via CSS). 
+                // We'll leave the code simple since removing class lets it rest.
             }
 
-            if (this.pulseTimer > 0) {
-                this.pulseTimer--;
-            }
-
-            // Loop smoothly back to the top
-            if (this.y - this.size * 2 > height) {
+            // Fallout reset
+            if (this.y > window.innerHeight + 50) {
                 this.reset();
             }
         }
-
-        draw(ctx) {
-            let currentSize = this.size;
-            let currentOpacity = this.baseOpacity;
-            let glow = 0;
-
-            if (this.pulseTimer > 0) {
-                // Sine wave interpolation from 0 back to 0 simulating swelling/pulsing
-                let progress = this.pulseTimer / 24; 
-                let pulseScale = 1 + Math.sin(progress * Math.PI) * 0.5; // 1 -> 1.5 -> 1
-                currentSize *= pulseScale;
-                currentOpacity = Math.min(1, this.baseOpacity + Math.sin(progress * Math.PI) * 0.5);
-                glow = Math.sin(progress * Math.PI) * 5; // Extra glow limited to 5px max
-            }
-
-            // Project 3D mathematical vertices into 2D canvas context via matrices
-            const projected = vertices.map(v => {
-                // Y-axis rotation
-                let z1 = v[2] * Math.cos(this.ry) - v[0] * Math.sin(this.ry);
-                let x1 = v[2] * Math.sin(this.ry) + v[0] * Math.cos(this.ry);
-                let y1 = v[1];
-
-                // X-axis rotation
-                let y2 = y1 * Math.cos(this.rx) - z1 * Math.sin(this.rx);
-                let z2 = y1 * Math.sin(this.rx) + z1 * Math.cos(this.rx);
-
-                // Simple FOV Perspective
-                let fov = 200;
-                let distance = 3;
-                let z = z2 + distance;
-                let factor = fov / z;
-
-                return [
-                    this.x + x1 * currentSize * factor,
-                    this.y + y2 * currentSize * factor
-                ];
-            });
-
-            ctx.beginPath();
-            for (let edge of edges) {
-                let p1 = projected[edge[0]];
-                let p2 = projected[edge[1]];
-                ctx.moveTo(p1[0], p1[1]);
-                ctx.lineTo(p2[0], p2[1]);
-            }
-            
-            ctx.strokeStyle = `rgba(0, 240, 255, ${currentOpacity})`;
-            ctx.lineWidth = 1.5;
-            
-            if (glow > 0) {
-                ctx.shadowBlur = glow;
-                ctx.shadowColor = '#00f0ff';
-            } else {
-                ctx.shadowBlur = 0; // Maintain absolute performance when not active
-            }
-
-            ctx.stroke();
-            ctx.shadowBlur = 0;
-        }
     }
 
-    // Limit instances automatically based on device performance expectations
-    const isMobile = window.matchMedia("(max-width: 768px)").matches;
-    const numCubes = isMobile ? 8 : 20;
-    const cubes = Array.from({length: numCubes}, () => new Cube());
+    // Spawn identical instances
+    for (let i = 0; i < numCubes; i++) {
+        cubes.push(new DOMCube());
+    }
 
+    // Animation Loop
     function animate() {
-        ctx.clearRect(0, 0, width, height);
         for (let cube of cubes) {
             cube.update();
-            cube.draw(ctx);
         }
         requestAnimationFrame(animate);
     }
-
+    
     animate();
 })();
