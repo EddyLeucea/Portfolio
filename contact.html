@@ -57,7 +57,8 @@
                 <!-- Left: Contact Form -->
                 <div class="contact-block glass-panel">
                     <h2>Let's work together</h2>
-                    <p>I'm always open to discussing new projects and creative ideas. Fill in the form below or join my Discord server directly!</p>
+                    <p>I'm always open to discussing new projects and creative ideas. Fill in the form below or join my
+                        Discord server directly! No worries if you don't have discord, I'll reach out via email!</p>
 
                     <form id="contactForm" class="contact-form">
                         <div class="form-group">
@@ -73,7 +74,8 @@
                             <textarea id="contact-message" name="message" rows="5" required
                                 placeholder="How can we build something amazing together?"></textarea>
                         </div>
-                        <button type="submit" class="btn btn-primary btn-large" id="contact-submit">Send Message</button>
+                        <button type="submit" class="btn btn-primary btn-large" id="contact-submit">Send
+                            Message</button>
                         <div id="form-feedback" class="form-feedback"></div>
                     </form>
                 </div>
@@ -189,7 +191,7 @@
                     <div class="dsc-members-list">
                         ${onlineMembers.map(m => `
                             <div class="dsc-member">
-                                <span class="dsc-member-dot" style="background: ${ m.status === 'online' ? '#43b581' : m.status === 'idle' ? '#faa61a' : m.status === 'dnd' ? '#f04747' : '#747f8d' };"></span>
+                                <span class="dsc-member-dot" style="background: ${m.status === 'online' ? '#43b581' : m.status === 'idle' ? '#faa61a' : m.status === 'dnd' ? '#f04747' : '#747f8d'};"></span>
                                 <span class="dsc-member-name">${m.username}</span>
                             </div>
                         `).join('')}
