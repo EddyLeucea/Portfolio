@@ -45,21 +45,33 @@
     </nav>
 
     <main>
-        <section class="page-header">
-            <h1>Get in Touch</h1>
-            <div class="underline"></div>
-        </section>
-
-        <!-- Two-column contact layout -->
+        <!-- Full-page contact section -->
         <section class="contact contact-section">
+
+            <!-- Page title row: centered title + discord card on the right -->
+            <div class="contact-top-row">
+                <div class="contact-title-area">
+                    <h1>Get in Touch</h1>
+                    <div class="underline"></div>
+                </div>
+                <div class="contact-discord-area">
+                    <div id="discord-server-card" class="discord-server-card glass-panel" style="display:none;">
+                        <!-- Populated by JS -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom row: left = text, right = form -->
             <div class="contact-layout">
 
-                <!-- Left: Contact Form -->
-                <div class="contact-block glass-panel">
-                    <h2>Let's work together</h2>
-                    <p>I'm always open to discussing new projects and creative ideas. Fill in the form below or join my
-                        Discord server directly! No worries if you don't have discord, I'll reach out via email!</p>
+                <!-- Left: Heading + description only -->
+                <div class="contact-text-col">
+                    <h2>Let's work<br>together</h2>
+                    <p>I'm always open to discussing new projects and creative ideas. Fill in the form or join my Discord server directly — no Discord? No worries, I'll reach out via email!</p>
+                </div>
 
+                <!-- Right: Form inputs -->
+                <div class="contact-form-col glass-panel">
                     <form id="contactForm" class="contact-form">
                         <div class="form-group">
                             <label for="contact-name">Name</label>
@@ -74,22 +86,15 @@
                             <textarea id="contact-message" name="message" rows="5" required
                                 placeholder="How can we build something amazing together?"></textarea>
                         </div>
-                        <button type="submit" class="btn btn-primary btn-large" id="contact-submit">Send
-                            Message</button>
+                        <button type="submit" class="btn btn-primary btn-large" id="contact-submit">Send Message</button>
                         <div id="form-feedback" class="form-feedback"></div>
                     </form>
-                </div>
-
-                <!-- Right: Discord Server Card -->
-                <div class="discord-server-col">
-                    <div id="discord-server-card" class="discord-server-card glass-panel" style="display:none;">
-                        <!-- Populated by JS -->
-                    </div>
                 </div>
 
             </div>
         </section>
     </main>
+
 
     <footer class="glass-footer">
         <p>&copy; 2026 Eduard Leucea. All rights reserved.</p>
