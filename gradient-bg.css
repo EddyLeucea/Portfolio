@@ -1,0 +1,23 @@
+/* Background Canvas & Overlay */
+#bg-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 0;
+    pointer-events: none;
+    /* Soft fallback gradient */
+    background: linear-gradient(135deg, #0a0a0f 0%, #15111c 100%);
+}
+
+.bg-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1;
+    pointer-events: none;
+    background: radial-gradient(circle at center, transparent 0%, rgba(10, 10, 15, 0.8) 100%);
+}

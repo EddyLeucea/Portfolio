@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Portfolio</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Inter:wght@400;500&display=swap"
+        rel="stylesheet">
+    <!-- CSS -->
+    <link rel="stylesheet" href="gradien-bg.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Animated Background -->
+    <canvas id="bg-canvas"></canvas>
+    <div class="bg-overlay"></div>
+
+    <nav class="glass-nav">
+        <div class="nav-content">
+            <span class="logo">Brand.</span>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Cinematic Hero -->
+        <section class="hero cinematic-hero">
+            <div class="hero-content glass-panel">
+                <span class="hero-tagline">Hello, I'm</span>
+                <h1 class="hero-title">Creative Developer</h1>
+                <p class="hero-description">Building premium web experiences with a focus on modern aesthetics, dynamic
+                    animations, and robust functionality.</p>
+                <div class="hero-actions">
+                    <a href="#projects" class="btn btn-primary">View My Work</a>
+                    <a href="#contact" class="btn btn-secondary">Get in Touch</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Highlight Strip -->
+        <section class="highlight-strip glass-panel">
+            <div class="stat">
+                <span class="stat-number">5+</span>
+                <span class="stat-label">Years Experience</span>
+            </div>
+            <div class="stat">
+                <span class="stat-number">50+</span>
+                <span class="stat-label">Projects Completed</span>
+            </div>
+            <div class="stat">
+                <span class="stat-number">100%</span>
+                <span class="stat-label">Client Satisfaction</span>
+            </div>
+        </section>
+
+        <!-- Elevated About Section -->
+        <section id="about" class="about elevated-section">
+            <div class="section-header">
+                <h2>About Me</h2>
+                <div class="underline"></div>
+            </div>
+            <div class="about-content glass-panel">
+                <div class="about-text">
+                    <h3>Designing with purpose.</h3>
+                    <p>I specialize in creating interactive and visually stunning web applications. My approach combines
+                        strong technical skills with a keen eye for design, ensuring that every project is both
+                        beautiful and functional.</p>
+                    <p>When I'm not coding, I'm exploring new design trends and refining my craft to stay at the cutting
+                        edge of web development.</p>
+                </div>
+                <div class="about-image-placeholder">
+                    <span>Profile Image</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Richer Project Cards -->
+        <section id="projects" class="projects">
+            <div class="section-header">
+                <h2>Featured Projects</h2>
+                <div class="underline"></div>
+            </div>
+            <div class="projects-grid">
+                <article class="project-card glass-panel">
+                    <div class="project-image" style="background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);">
+                    </div>
+                    <div class="project-info">
+                        <h3>E-Commerce Platform</h3>
+                        <p>A modern, high-performance shopping experience built with React and Node.js.</p>
+                        <a href="#" class="project-link">View Case Study →</a>
+                    </div>
+                </article>
+                <article class="project-card glass-panel">
+                    <div class="project-image" style="background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);">
+                    </div>
+                    <div class="project-info">
+                        <h3>Finance Dashboard</h3>
+                        <p>Real-time analytics dashboard with interactive data visualization.</p>
+                        <a href="#" class="project-link">View Case Study →</a>
+                    </div>
+                </article>
+                <article class="project-card glass-panel">
+                    <div class="project-image" style="background: linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%);">
+                    </div>
+                    <div class="project-info">
+                        <h3>Creative Agency Site</h3>
+                        <p>A premium portfolio website featuring immersive 3D animations.</p>
+                        <a href="#" class="project-link">View Case Study →</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Cleaner Contact Block -->
+        <section id="contact" class="contact elevated-section">
+            <div class="contact-block glass-panel">
+                <h2>Let's work together</h2>
+                <p>I'm always open to discussing new projects and creative ideas.</p>
+                <a href="mailto:hello@example.com" class="btn btn-primary btn-large">Say Hello</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="glass-footer">
+        <p>&copy; 2026 Personal Brand. All rights reserved.</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="background-canvas.js"></script>
+</body>
+
+</html>
