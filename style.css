@@ -291,8 +291,10 @@ main {
     align-items: center;
     padding-top: 5rem;
     padding-left: 8vw;
-    padding-right: 8vw;
+    padding-right: 2vw;
     gap: 4rem;
+    position: relative;
+    z-index: 10;
 }
 
 .hero-content {
@@ -730,7 +732,7 @@ main {
 .discord-card {
     padding: 1.5rem;
     border-radius: 16px;
-    width: 320px;
+    width: 380px;
     pointer-events: none; /* Requested */
     display: flex;
     flex-direction: column;
