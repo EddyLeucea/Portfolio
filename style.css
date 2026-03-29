@@ -839,6 +839,8 @@ main {
     display: flex;
     flex-direction: column;
     color: var(--text-muted);
+    flex: 1;
+    min-width: 0;
 }
 
 .activity-details strong {
