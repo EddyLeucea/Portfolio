@@ -49,12 +49,26 @@
         <!-- Cinematic Hero -->
         <section class="hero cinematic-hero">
             <div class="hero-content">
-                <span class="hero-tagline">WELCOME TO MY PORTFOLIO</span>
-                <h1 class="hero-title">Hi, my<br>name is <span style="color: var(--accent-secondary); font-weight: 700;">Eduard.</span></h1>
-                <p class="hero-description">Student at Thomas More — building modern digital experiences.</p>
-                <div class="hero-actions">
-                    <a href="./projects.html" class="btn btn-primary">View My Work</a>
-                    <a href="./about.html" class="btn btn-secondary">More About Me</a>
+                <div class="hero-left">
+                    <span class="hero-tagline">WELCOME TO MY PORTFOLIO</span>
+                    <h1 class="hero-title">Hi, my<br>name is <span style="color: var(--accent-secondary); font-weight: 700;">Eduard.</span></h1>
+                    <p class="hero-description">Student at Thomas More — building modern digital experiences.</p>
+                    <div class="hero-actions">
+                        <a href="./projects.html" class="btn btn-primary">View My Work</a>
+                        <a href="./about.html" class="btn btn-secondary">More About Me</a>
+                    </div>
+                </div>
+
+                <div class="hero-right" id="discord-card-container" style="display: none; opacity: 0; transition: opacity 0.5s ease;">
+                    <div class="discord-card glass-panel">
+                        <div class="discord-status-header">
+                            <span class="status-dot tooltip" id="discord-dot"></span>
+                            <span class="discord-username" id="discord-text">Eduard — Fetching...</span>
+                        </div>
+                        <div class="discord-activity" id="discord-activity" style="display: none;">
+                            <!-- Activity is injected here dynamically -->
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -77,6 +91,9 @@
             });
         }
     </script>
+    <!-- Custom Lanyard Display -->
+    <script src="./lanyard.js"></script>
+    
     <!-- Custom Background Canvas and Collision Logic -->
     <script src="./background.js"></script>
 </body>
