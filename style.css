@@ -285,15 +285,18 @@ main {
 
 /* Hero Section */
 .hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     min-height: 100vh;
-    display: flex;
-    align-items: flex-start;
-    justify-content: flex-start;
-    padding-top: 8rem;
+    align-items: center;
+    padding-top: 5rem;
+    gap: 2rem;
 }
 
 .hero-content {
-    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     text-align: left;
 }
 
@@ -716,37 +719,16 @@ main {
 }
 
 /* Lanyard Status & Hero 2-Column */
-.cinematic-hero .hero-content {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-    align-items: center;
-    width: 100%;
-}
-
-.hero-left {
-    text-align: left;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-}
-
-.hero-left .hero-actions {
-    justify-content: flex-start;
-}
-
 .hero-right {
-    flex: 1;
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
     align-items: center;
 }
 
 .discord-card {
     padding: 1.5rem;
     border-radius: 16px;
-    width: 100%;
-    max-width: 320px;
+    width: 320px;
     pointer-events: none; /* Requested */
     display: flex;
     flex-direction: column;
@@ -882,15 +864,14 @@ main {
 }
 
 @media (max-width: 768px) {
-    .cinematic-hero .hero-content {
+    .hero {
         grid-template-columns: 1fr;
-        gap: 2.5rem;
     }
-    .hero-left {
+    .hero-content {
         align-items: center;
         text-align: center;
     }
-    .hero-left .hero-actions {
+    .hero-actions {
         justify-content: center;
     }
     .hero-right {
