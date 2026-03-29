@@ -5,13 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Me | Eduard Leucea</title>
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Inter:wght@400;500&display=swap"
         rel="stylesheet">
-    <!-- CSS -->
     <link rel="stylesheet" href="./gradient-bg.css">
     <link rel="stylesheet" href="./style.css">
 </head>
@@ -21,7 +19,7 @@
 
     <nav class="glass-nav">
         <div class="nav-content">
-            <span class="logo">Brand.</span>
+            <span class="logo">Eddy.</span>
             <button class="menu-toggle" aria-label="Toggle Menu">
                 <span class="menu-divider"></span>
                 <span class="menu-label">MENU</span>
@@ -33,7 +31,6 @@
         </div>
     </nav>
 
-    <!-- Fullscreen Menu Overlay -->
     <nav class="fullscreen-menu">
         <ul class="fullscreen-nav-links">
             <li><a href="./index.html">Home</a></li>
@@ -44,47 +41,172 @@
         </ul>
     </nav>
 
-    <main>
-        <section class="page-header">
-            <h1>About Me</h1>
-            <div class="underline"></div>
-        </section>
-
-        <!-- Highlight Strip (Moved here from Home) -->
-        <section class="highlight-strip glass-panel" style="margin-top: 0;">
-            <div class="stat">
-                <span class="stat-number">5+</span>
-                <span class="stat-label">Years Experience</span>
-            </div>
-            <div class="stat">
-                <span class="stat-number">50+</span>
-                <span class="stat-label">Projects Completed</span>
-            </div>
-            <div class="stat">
-                <span class="stat-number">100%</span>
-                <span class="stat-label">Client Satisfaction</span>
-            </div>
-        </section>
-
-        <section class="about" style="padding-top: 2rem;">
-            <div class="about-content glass-panel">
-                <div class="about-text">
-                    <h3>Personal Bio</h3>
-                    <p>I specialize in creating interactive and visually stunning web applications. As a student at
-                        Thomas More studying Application & AI Development, my approach combines strong technical skills
-                        with a keen eye for design.</p>
-                    <p>When I'm not coding, I'm exploring new design trends, messing with AI logic, and refining my
-                        craft to stay at the cutting edge of web development.</p>
-
-                    <h3 style="margin-top: 2rem;">Skills & Tech Stack</h3>
-                    <p>HTML, CSS, JavaScript, React, Node.js, AI Integration, WebGL, Python</p>
-
-                    <h3 style="margin-top: 2rem;">Education</h3>
-                    <p><strong>Thomas More University of Applied Sciences</strong><br>
-                        Application & AI Development (Present)</p>
+    <main class="about-page">
+        <section class="about-hero">
+            <div class="about-hero-copy">
+                <span class="about-eyebrow">ABOUT ME</span>
+                <h1 class="about-hero-title">Hi, I'm Eduard Leucea.</h1>
+                <p class="about-hero-lead">
+                    I have been curious about computers and the technology behind them from a young age. That interest
+                    pushed me to switch from an economics path to IT in secondary school, and since then I have felt
+                    completely at home in this field. I may come across as reserved at first, but once people get to
+                    know me, I become much more open, engaged, and easy to work with.
+                </p>
+                <div class="about-hero-notes">
+                    <div class="about-note">
+                        <span class="about-note-dot"></span>
+                        <span>Application & AI Development student at Thomas More</span>
+                    </div>
+                    <div class="about-note">
+                        <span class="about-note-dot"></span>
+                        <span>Drawn to the technical side of intelligent systems and modern software</span>
+                    </div>
                 </div>
-                <div class="about-image-placeholder">
-                    <span>Profile Image</span>
+            </div>
+
+            <div class="about-photo-card glass-panel">
+                <div class="about-photo-frame">
+                    <img src="./AboutMePhoto.jpg" alt="Portrait of Eduard Leucea" class="about-photo"
+                        onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';">
+                    <div class="about-photo-fallback">
+                        <span>AboutMePhoto.jpg</span>
+                        <p>Add your personal photo here for the final portfolio version.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="about-section">
+            <div class="section-header about-section-header">
+                <h2>Why I Chose Application &amp; AI Development</h2>
+                <div class="underline"></div>
+            </div>
+            <div class="about-story-card glass-panel">
+                <p>
+                    I chose this field because I believe AI and intelligent systems will play a major role in the
+                    future of technology, business, and everyday life. That long-term impact motivates me, but what
+                    keeps me genuinely interested is the technology itself. I enjoy learning how AI tools, LLMs, and
+                    modern software systems work behind the scenes, and I want to build the technical foundation needed
+                    to contribute to that future in a meaningful way.
+                </p>
+            </div>
+        </section>
+
+        <section class="about-section">
+            <div class="section-header about-section-header">
+                <h2>Interests Beyond Code</h2>
+                <div class="underline"></div>
+            </div>
+            <div class="about-interests-grid">
+                <article class="about-interest-card glass-panel">
+                    <span class="about-card-kicker">Gym</span>
+                    <h3>Discipline through routine</h3>
+                    <p>
+                        I have been training in the gym for the past two to three years. Right now I am focused on a
+                        strict cut, which has taught me a lot about consistency, discipline, and sticking to a plan
+                        even when progress takes time.
+                    </p>
+                </article>
+
+                <article class="about-interest-card glass-panel">
+                    <span class="about-card-kicker">Reading</span>
+                    <h3>Stories that keep me curious</h3>
+                    <p>
+                        Outside of school and coding, I enjoy reading manga, manhwa, manhua, and webnovels. I like how
+                        they combine creativity, long-form storytelling, and world-building in a way that makes it
+                        easy to stay absorbed for hours.
+                    </p>
+                </article>
+
+                <article class="about-interest-card glass-panel">
+                    <span class="about-card-kicker">Pool</span>
+                    <h3>A hobby that became an obsession</h3>
+                    <p>
+                        Since starting at Thomas More, I became seriously interested in pool and played almost every
+                        day there. That hobby kept growing, and eventually I bought my own pool table at home. I also
+                        enjoy playing snooker and café pool with friends whenever I get the chance.
+                    </p>
+                </article>
+            </div>
+        </section>
+
+        <section class="about-section">
+            <div class="section-header about-section-header">
+                <h2>Future Goals</h2>
+                <div class="underline"></div>
+            </div>
+            <div class="about-goals-card glass-panel">
+                <p>
+                    My long-term goal is to work on AI systems and LLM-based products that make information more
+                    accessible, practical, and useful in everyday life. I want to help build tools that reduce
+                    unnecessary searching and give people a clearer, faster way to find what they need.
+                </p>
+            </div>
+        </section>
+
+        <section class="about-section">
+            <div class="section-header about-section-header">
+                <h2>Skills</h2>
+                <div class="underline"></div>
+            </div>
+            <div class="about-skills-grid">
+                <article class="about-skills-card glass-panel">
+                    <span class="about-card-kicker">Technical Skills</span>
+                    <div class="skill-pill-grid">
+                        <span class="skill-pill">HTML</span>
+                        <span class="skill-pill">CSS</span>
+                        <span class="skill-pill">JavaScript</span>
+                        <span class="skill-pill">Java</span>
+                        <span class="skill-pill">SQL</span>
+                        <span class="skill-pill">MySQL</span>
+                        <span class="skill-pill">SQLite</span>
+                        <span class="skill-pill">Git</span>
+                        <span class="skill-pill">Python</span>
+                        <span class="skill-pill">PHP</span>
+                        <span class="skill-pill">C#</span>
+                        <span class="skill-pill">React</span>
+                        <span class="skill-pill">.NET</span>
+                        <span class="skill-pill">Alpine.js</span>
+                        <span class="skill-pill">MongoDB</span>
+                        <span class="skill-pill">Bootstrap</span>
+                        <span class="skill-pill">Tailwind CSS</span>
+                        <span class="skill-pill">Livewire</span>
+                        <span class="skill-pill">Laravel</span>
+                        <span class="skill-pill">Docker</span>
+                        <span class="skill-pill">Azure</span>
+                        <span class="skill-pill">Cisco</span>
+                    </div>
+                </article>
+
+                <article class="about-skills-card glass-panel">
+                    <span class="about-card-kicker">Soft Skills</span>
+                    <div class="skill-pill-grid skill-pill-grid-soft">
+                        <span class="skill-pill">Teamwork</span>
+                        <span class="skill-pill">Communication</span>
+                        <span class="skill-pill">Problem solving</span>
+                        <span class="skill-pill">Client-focused mindset</span>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="about-section">
+            <div class="section-header about-section-header">
+                <h2>Curriculum Vitae</h2>
+                <div class="underline"></div>
+            </div>
+            <div class="about-cv-card glass-panel">
+                <div class="about-cv-copy">
+                    <p>
+                        You can explore my full CV on a separate page, or download the PDF version directly if you want
+                        a quick overview of my education and experience.
+                    </p>
+                    <span class="about-cv-file">Visible label: CV_Eduard_Leucea.pdf</span>
+                </div>
+                <div class="about-cv-actions">
+                    <a href="./cv.html" class="btn btn-secondary">View CV Page</a>
+                    <a href="./EDUARD LEUCEA.pdf" class="btn btn-primary" download="CV_Eduard_Leucea.pdf">Download CV
+                        (PDF)</a>
                 </div>
             </div>
         </section>
@@ -94,7 +216,6 @@
         <p>&copy; 2026 Eduard Leucea. All rights reserved.</p>
     </footer>
 
-    <!-- Scripts -->
     <script>
         const menuToggle = document.querySelector('.menu-toggle');
         const fullscreenMenu = document.querySelector('.fullscreen-menu');
@@ -107,7 +228,6 @@
             });
         }
     </script>
-    <!-- Custom Background Canvas and Collision Logic -->
     <script src="./background.js"></script>
 </body>
 
