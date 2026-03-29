@@ -958,3 +958,42 @@ main {
         max-width: 420px;
     }
 }
+
+/* Discord Widget Section (contact.html) */
+.discord-section-divider {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin: 2.5rem auto 0;
+    max-width: 500px;
+}
+
+.discord-section-divider::before,
+.discord-section-divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.12);
+}
+
+.discord-widget-wrapper {
+    display: flex;
+    justify-content: center;
+    padding: 1.5rem 0 3rem;
+}
+
+.discord-widget-frame {
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+.discord-widget-wrapper iframe {
+    display: block;
+    max-width: 100%;
+}
