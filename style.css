@@ -969,21 +969,21 @@ main {
     gap: 3rem;
 }
 
-/* TOP ROW: centered title (left-center) + discord card (right) */
+/* TOP ROW: title flush left + discord card flush right */
 .contact-top-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
 }
 
-.contact-title-area {
-    text-align: left;
-}
-
-.contact-title-area h1 {
+.contact-main-title {
     font-size: clamp(3rem, 6vw, 5.5rem);
-    margin-bottom: 0.75rem;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    color: var(--text-main);
+    margin: 0;
+    line-height: 1;
 }
 
 .contact-discord-area {
@@ -995,7 +995,7 @@ main {
 /* BOTTOM ROW: text left + form right */
 .contact-layout {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1.6fr;
     gap: 4rem;
     align-items: center;
 }
