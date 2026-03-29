@@ -978,11 +978,11 @@ main {
 }
 
 .contact-title-area {
-    text-align: center;
+    text-align: left;
 }
 
 .contact-title-area h1 {
-    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-size: clamp(3rem, 6vw, 5.5rem);
     margin-bottom: 0.75rem;
 }
 
@@ -1007,20 +1007,20 @@ main {
 }
 
 .contact-text-col h2 {
-    font-size: clamp(2rem, 4vw, 3rem);
-    line-height: 1.15;
+    font-size: clamp(3rem, 5vw, 5rem);
+    line-height: 1.1;
     color: var(--text-main);
 }
 
 .contact-text-col p {
     color: var(--text-muted);
-    font-size: 1.05rem;
+    font-size: 1.15rem;
     line-height: 1.7;
-    max-width: 420px;
+    max-width: 480px;
 }
 
 .contact-form-col {
-    padding: 2rem;
+    padding: 2rem 2.5rem;
     border-radius: 16px;
 }
 
