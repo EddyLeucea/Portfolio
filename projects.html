@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects | Eduard Leucea</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Inter:wght@400;500&display=swap"
+        rel="stylesheet">
+    <!-- CSS -->
+    <link rel="stylesheet" href="./gradient-bg.css">
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <div class="bg-overlay"></div>
+
+    <nav class="glass-nav">
+        <div class="nav-content">
+            <span class="logo">Brand.</span>
+            <button class="menu-toggle" aria-label="Toggle Menu">
+                <span class="line"></span>
+                <span class="line"></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Fullscreen Menu Overlay -->
+    <nav class="fullscreen-menu">
+        <ul class="fullscreen-nav-links">
+            <li><a href="./index.html">Home</a></li>
+            <li><a href="./about.html">About Me</a></li>
+            <li><a href="./projects.html" class="active">Projects</a></li>
+            <li><a href="./cv.html">CV</a></li>
+            <li><a href="./contact.html">Contact Me</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section class="page-header">
+            <h1>Featured Projects</h1>
+            <div class="underline"></div>
+        </section>
+
+        <!-- Richer Project Cards -->
+        <section class="projects" style="padding-top: 2rem;">
+            <div class="projects-grid">
+                <article class="project-card glass-panel">
+                    <div class="project-image" style="background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);">
+                    </div>
+                    <div class="project-info">
+                        <h3>E-Commerce Platform</h3>
+                        <p>A modern, high-performance shopping experience built with React and Node.js.</p>
+                        <a href="#" class="project-link">View Case Study →</a>
+                    </div>
+                </article>
+                <article class="project-card glass-panel">
+                    <div class="project-image" style="background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);">
+                    </div>
+                    <div class="project-info">
+                        <h3>Finance Dashboard</h3>
+                        <p>Real-time analytics dashboard with interactive data visualization.</p>
+                        <a href="#" class="project-link">View Case Study →</a>
+                    </div>
+                </article>
+                <article class="project-card glass-panel">
+                    <div class="project-image" style="background: linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%);">
+                    </div>
+                    <div class="project-info">
+                        <h3>Creative Agency Site</h3>
+                        <p>A premium portfolio website featuring immersive 3D animations.</p>
+                        <a href="#" class="project-link">View Case Study →</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer class="glass-footer">
+        <p>&copy; 2026 Eduard Leucea. All rights reserved.</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        const menuToggle = document.querySelector('.menu-toggle');
+        const fullscreenMenu = document.querySelector('.fullscreen-menu');
+
+        if (menuToggle && fullscreenMenu) {
+            menuToggle.addEventListener('click', () => {
+                menuToggle.classList.toggle('active');
+                fullscreenMenu.classList.toggle('active');
+                document.body.classList.toggle('menu-open');
+            });
+        }
+    </script>
+</body>
+
+</html>
