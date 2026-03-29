@@ -961,168 +961,422 @@ main {
 
 /* Contact Layout */
 .contact-section {
-    min-height: calc(100vh - 5rem);
+    min-height: 100vh;
+    padding: 8rem 0 5rem;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 5rem 0 4rem;
-    gap: 3rem;
-}
-
-/* TOP ROW: title flush left + discord card flush right */
-.contact-top-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    width: 100%;
-}
-
-.contact-main-title {
-    font-size: clamp(3rem, 6vw, 5.5rem);
-    font-family: var(--font-heading);
-    font-weight: 700;
-    color: var(--text-main);
-    margin: 0;
-    line-height: 1;
-}
-
-.contact-discord-area {
-    display: flex;
-    justify-content: center;
     align-items: center;
 }
 
-/* BOTTOM ROW: text left + form right */
-.contact-layout {
+.contact-shell {
+    width: 100%;
+    max-width: 1180px;
+    margin: 0 auto;
+}
+
+.contact-hero {
+    min-height: calc(100vh - 13rem);
     display: grid;
-    grid-template-columns: 1fr 1.6fr;
+    grid-template-columns: 1fr 1.1fr;
     gap: 4rem;
     align-items: center;
 }
 
-.contact-text-col {
+.contact-copy {
     display: flex;
     flex-direction: column;
-    gap: 1.25rem;
+    justify-content: center;
+    gap: 1.5rem;
+    max-width: 470px;
 }
 
-.contact-text-col h2 {
-    font-size: clamp(3rem, 5vw, 5rem);
-    line-height: 1.1;
-    color: var(--text-main);
+.contact-eyebrow {
+    display: inline-flex;
+    align-self: flex-start;
+    padding: 0.45rem 0.8rem;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.04);
+    color: var(--accent-secondary);
+    font-family: var(--font-heading);
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.2rem;
 }
 
-.contact-text-col p {
+.contact-title {
+    font-size: clamp(3.4rem, 7vw, 6rem);
+    line-height: 0.96;
+    letter-spacing: -0.04em;
+    background: linear-gradient(135deg, #ffffff 0%, rgba(255, 255, 255, 0.74) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.contact-lead {
     color: var(--text-muted);
-    font-size: 1.15rem;
-    line-height: 1.7;
-    max-width: 480px;
+    font-size: 1.05rem;
+    line-height: 1.85;
+    max-width: 44ch;
 }
 
-.contact-form-col {
-    padding: 2rem 2.5rem;
-    border-radius: 16px;
+.contact-highlights {
+    display: grid;
+    gap: 0.85rem;
+    margin-top: 0.5rem;
 }
 
-/* Mobile */
-@media (max-width: 768px) {
-    .contact-top-row {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-        text-align: center;
-    }
-    .contact-layout {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-    }
-    .contact-text-col p {
-        max-width: 100%;
-    }
+.contact-highlight {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+    color: rgba(255, 255, 255, 0.86);
+    font-size: 0.98rem;
+}
+
+.contact-highlight-dot {
+    width: 0.65rem;
+    height: 0.65rem;
+    border-radius: 50%;
+    background: linear-gradient(45deg, var(--accent-primary), var(--accent-secondary));
+    box-shadow: 0 0 18px rgba(255, 126, 95, 0.45);
+    flex-shrink: 0;
+}
+
+.contact-card {
+    padding: 0;
+    overflow: hidden;
+    border-radius: 28px;
+    background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.07) 0%, rgba(255, 255, 255, 0.02) 100%),
+        var(--glass-bg);
+}
+
+.contact-card-section {
+    padding: 2.4rem 2.5rem;
+}
+
+.contact-card-header {
+    margin-bottom: 1.75rem;
+}
+
+.contact-card-header h2 {
+    font-size: clamp(1.8rem, 3vw, 2.4rem);
+    line-height: 1.1;
+    margin-bottom: 0.55rem;
+}
+
+.contact-card-header p {
+    color: var(--text-muted);
+    font-size: 0.98rem;
+    line-height: 1.75;
+    max-width: 52ch;
+}
+
+.contact-card-kicker {
+    display: inline-block;
+    margin-bottom: 0.7rem;
+    color: var(--accent-secondary);
+    font-family: var(--font-heading);
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.16rem;
+    text-transform: uppercase;
+}
+
+.contact-card-header-compact {
+    margin-bottom: 1.25rem;
+}
+
+.contact-card-header-compact h2 {
+    font-size: 1.5rem;
+    margin-bottom: 0;
+}
+
+.contact-card-divider {
+    height: 1px;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.05), rgba(255, 126, 95, 0.4), rgba(255, 255, 255, 0.05));
+}
+
+.contact-form {
+    margin-top: 0;
+    gap: 1.2rem;
+}
+
+.form-group {
+    gap: 0.7rem;
+}
+
+.form-group input,
+.form-group textarea {
+    padding: 1rem 1.05rem;
+    background: rgba(255, 255, 255, 0.045);
+    border-radius: 14px;
+}
+
+.form-group textarea {
+    min-height: 150px;
+    resize: vertical;
+}
+
+.form-group input[type="file"] {
+    padding: 0.75rem;
+}
+
+.form-group input[type="file"]::file-selector-button {
+    margin-right: 0.85rem;
+    padding: 0.7rem 1rem;
+    border: none;
+    border-radius: 999px;
+    background: linear-gradient(45deg, rgba(255, 126, 95, 0.24), rgba(254, 180, 123, 0.24));
+    color: var(--text-main);
+    font-family: var(--font-heading);
+    cursor: pointer;
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.form-group input[type="file"]::file-selector-button:hover {
+    transform: translateY(-1px);
+    background: linear-gradient(45deg, rgba(255, 126, 95, 0.34), rgba(254, 180, 123, 0.34));
+}
+
+.form-helper {
+    color: rgba(255, 255, 255, 0.56);
+    font-size: 0.86rem;
+    line-height: 1.5;
+}
+
+#contact-submit {
+    margin-top: 0.4rem;
+}
+
+.form-feedback {
+    margin-top: 0.25rem;
+    text-align: left;
+}
+
+.discord-join-section {
+    padding-top: 2rem;
 }
 
 .discord-server-card {
-    flex-direction: column;
-    gap: 1.25rem;
     width: 100%;
-    padding: 1.75rem;
-    border-radius: 16px;
-    transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.4s ease;
 }
 
-.discord-server-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 30px rgba(88, 101, 242, 0.2);
+.dsc-surface,
+.discord-server-loading,
+.discord-server-fallback {
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 22px;
+    padding: 1.35rem;
 }
 
-/* Card header: Discord logo + server name */
-.dsc-header {
+.dsc-surface {
+    display: flex;
+    flex-direction: column;
+    gap: 1.1rem;
+}
+
+.discord-server-loading,
+.discord-server-fallback {
     display: flex;
     align-items: center;
-    gap: 0.6rem;
+    justify-content: center;
+    gap: 0.75rem;
+    min-height: 170px;
+    color: var(--text-muted);
+    text-align: center;
+}
+
+.discord-server-loading-dot {
+    width: 0.75rem;
+    height: 0.75rem;
+    border-radius: 50%;
+    background: var(--accent-secondary);
+    box-shadow: 0 0 14px rgba(254, 180, 123, 0.5);
+    animation: pulseDot 1.8s infinite;
+}
+
+.dsc-header {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    align-items: flex-start;
     padding-bottom: 1rem;
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
+.dsc-header-main {
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+}
+
+.dsc-logo-wrap {
+    width: 2.9rem;
+    height: 2.9rem;
+    border-radius: 16px;
+    display: grid;
+    place-items: center;
+    background: rgba(88, 101, 242, 0.14);
+    border: 1px solid rgba(88, 101, 242, 0.24);
+}
+
 .dsc-logo {
-    width: 22px;
-    height: 22px;
-    flex-shrink: 0;
+    width: 1.45rem;
+    height: 1.45rem;
+}
+
+.dsc-label {
+    font-size: 0.76rem;
+    letter-spacing: 0.12rem;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.5);
+    margin-bottom: 0.15rem;
 }
 
 .dsc-server-name {
     font-family: var(--font-heading);
-    font-size: 1.1rem;
+    font-size: 1.15rem;
     font-weight: 700;
     color: var(--text-main);
 }
 
-/* Online count row */
 .dsc-online-count {
-    display: flex;
+    display: inline-flex;
     align-items: center;
-    gap: 0.5rem;
-    font-size: 0.9rem;
+    gap: 0.55rem;
     color: var(--text-muted);
+    font-size: 0.92rem;
+    white-space: nowrap;
+}
+
+.dsc-online-count strong {
+    color: var(--accent-secondary);
 }
 
 .dsc-online-dot {
-    width: 10px;
-    height: 10px;
+    width: 0.65rem;
+    height: 0.65rem;
     border-radius: 50%;
     background: #43b581;
+    box-shadow: 0 0 10px #43b581;
     flex-shrink: 0;
-    box-shadow: 0 0 6px #43b581;
 }
 
-/* Members list */
+.dsc-members {
+    display: grid;
+    gap: 0.85rem;
+}
+
+.dsc-members-title {
+    font-family: var(--font-heading);
+    font-size: 0.98rem;
+    color: rgba(255, 255, 255, 0.88);
+}
+
 .dsc-members-list {
-    display: flex;
-    flex-direction: column;
-    gap: 0.6rem;
+    display: grid;
+    gap: 0.7rem;
 }
 
 .dsc-member {
-    display: flex;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 0.75rem;
     align-items: center;
-    gap: 0.6rem;
+    padding: 0.8rem 0.9rem;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.04);
+}
+
+.dsc-member-avatar {
+    width: 2.2rem;
+    height: 2.2rem;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    background: linear-gradient(135deg, rgba(255, 126, 95, 0.32), rgba(254, 180, 123, 0.32));
+    color: var(--text-main);
+    font-family: var(--font-heading);
+    font-weight: 700;
+}
+
+.dsc-member-copy {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+.dsc-member-name {
+    color: var(--text-main);
+    font-size: 0.93rem;
+    font-weight: 500;
+}
+
+.dsc-member-status {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.8rem;
+    text-transform: capitalize;
 }
 
 .dsc-member-dot {
-    width: 8px;
-    height: 8px;
+    width: 0.55rem;
+    height: 0.55rem;
     border-radius: 50%;
     flex-shrink: 0;
 }
 
-.dsc-member-name {
-    font-size: 0.875rem;
+.dsc-empty {
     color: var(--text-muted);
+    font-size: 0.92rem;
 }
 
-/* Mobile: stack columns */
-@media (max-width: 768px) {
-    .contact-layout {
+.dsc-join-button {
+    width: 100%;
+    text-align: center;
+}
+
+@media (max-width: 960px) {
+    .contact-section {
+        padding: 7rem 0 4rem;
+    }
+
+    .contact-hero {
         grid-template-columns: 1fr;
-        gap: 2rem;
+        min-height: auto;
+        gap: 2.5rem;
+    }
+
+    .contact-copy {
+        max-width: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .contact-section {
+        padding: 6.5rem 0 3.5rem;
+    }
+
+    .contact-card-section {
+        padding: 1.6rem;
+    }
+
+    .contact-title {
+        font-size: clamp(2.8rem, 14vw, 4rem);
+    }
+
+    .contact-lead {
+        max-width: none;
+        font-size: 1rem;
+    }
+
+    .contact-highlight {
+        align-items: flex-start;
+    }
+
+    .dsc-header {
+        flex-direction: column;
     }
 }
