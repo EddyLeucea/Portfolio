@@ -24,12 +24,21 @@
     <nav class="glass-nav">
         <div class="nav-content">
             <span class="logo">Brand.</span>
-            <ul class="nav-links">
-                <li><a href="#about">About</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
+            <button class="menu-toggle" aria-label="Toggle Menu">
+                <span class="line"></span>
+                <span class="line"></span>
+            </button>
         </div>
+    </nav>
+
+    <!-- Fullscreen Menu Overlay -->
+    <nav class="fullscreen-menu">
+        <ul class="fullscreen-nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
     </nav>
 
     <main>
@@ -137,6 +146,25 @@
 
     <!-- Scripts -->
     <script src="background-canvas.js"></script>
+    <script>
+        const menuToggle = document.querySelector('.menu-toggle');
+        const fullscreenMenu = document.querySelector('.fullscreen-menu');
+        const menuLinks = document.querySelectorAll('.fullscreen-nav-links a');
+
+        menuToggle.addEventListener('click', () => {
+            menuToggle.classList.toggle('active');
+            fullscreenMenu.classList.toggle('active');
+            document.body.classList.toggle('menu-open');
+        });
+
+        menuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                menuToggle.classList.remove('active');
+                fullscreenMenu.classList.remove('active');
+                document.body.classList.remove('menu-open');
+            });
+        });
+    </script>
 </body>
 
 </html>
