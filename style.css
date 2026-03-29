@@ -959,41 +959,104 @@ main {
     }
 }
 
-/* Discord Widget Section (contact.html) */
-.discord-section-divider {
+/* Contact Layout */
+.contact-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+}
+
+.discord-server-col {
     display: flex;
     align-items: center;
-    gap: 1rem;
-    text-align: center;
-    color: var(--text-muted);
-    font-size: 0.85rem;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    margin: 2.5rem auto 0;
-    max-width: 500px;
-}
-
-.discord-section-divider::before,
-.discord-section-divider::after {
-    content: '';
-    flex: 1;
-    height: 1px;
-    background: rgba(255, 255, 255, 0.12);
-}
-
-.discord-widget-wrapper {
-    display: flex;
     justify-content: center;
-    padding: 1.5rem 0 3rem;
+    height: 100%;
 }
 
-.discord-widget-frame {
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+.discord-server-card {
+    flex-direction: column;
+    gap: 1.25rem;
+    width: 100%;
+    padding: 1.75rem;
+    border-radius: 16px;
+    transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.4s ease;
 }
 
-.discord-widget-wrapper iframe {
-    display: block;
-    max-width: 100%;
+.discord-server-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(88, 101, 242, 0.2);
+}
+
+/* Card header: Discord logo + server name */
+.dsc-header {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.dsc-logo {
+    width: 22px;
+    height: 22px;
+    flex-shrink: 0;
+}
+
+.dsc-server-name {
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-main);
+}
+
+/* Online count row */
+.dsc-online-count {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+.dsc-online-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #43b581;
+    flex-shrink: 0;
+    box-shadow: 0 0 6px #43b581;
+}
+
+/* Members list */
+.dsc-members-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+.dsc-member {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.dsc-member-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.dsc-member-name {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+}
+
+/* Mobile: stack columns */
+@media (max-width: 768px) {
+    .contact-layout {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
 }
