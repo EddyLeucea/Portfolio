@@ -960,11 +960,19 @@ main {
 }
 
 /* Contact Layout */
+.contact-section {
+    min-height: calc(100vh - 5rem);
+    display: flex;
+    align-items: center;
+    padding: 5rem 0 4rem;
+}
+
 .contact-layout {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 4rem;
-    align-items: stretch;
+    align-items: center;
+    width: 100%;
 }
 
 .discord-server-col {
