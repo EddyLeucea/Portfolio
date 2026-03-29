@@ -964,14 +964,13 @@ main {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 4rem;
-    align-items: start;
+    align-items: stretch;
 }
 
 .discord-server-col {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 100%;
 }
 
 .discord-server-card {
