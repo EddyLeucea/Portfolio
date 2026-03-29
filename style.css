@@ -878,6 +878,10 @@ main {
 @media (max-width: 768px) {
     .hero {
         grid-template-columns: 1fr;
+        padding-left: 5vw;
+        padding-right: 5vw;
+        padding-bottom: 4rem;
+        gap: 3rem;
     }
     .hero-content {
         align-items: center;
