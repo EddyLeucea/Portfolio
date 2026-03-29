@@ -89,6 +89,7 @@ a {
     font-weight: 700;
     background: linear-gradient(45deg, var(--accent-primary), var(--accent-secondary));
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
@@ -179,9 +180,16 @@ a {
     transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), color 0.3s ease;
 }
 
-.fullscreen-nav-links a:hover {
+.fullscreen-nav-links a:hover,
+.fullscreen-nav-links a.active {
     color: var(--accent-secondary);
     transform: translateY(-5px) scale(1.05);
+}
+
+.fullscreen-nav-links a.active {
+    text-decoration: underline;
+    text-decoration-color: var(--accent-primary);
+    text-underline-offset: 8px;
 }
 
 /* Prevent scroll when menu open */
@@ -284,6 +292,7 @@ main {
     margin-bottom: 1.5rem;
     background: linear-gradient(to right, #ffffff, var(--text-muted));
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
@@ -523,6 +532,90 @@ main {
     position: relative;
     z-index: 10;
     color: var(--text-muted);
+}
+
+/* CV Section */
+.cv-section {
+    padding: 10rem 0 4rem;
+}
+
+.cv-container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.cv-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 3rem;
+    border-bottom: 2px solid var(--glass-border);
+    padding-bottom: 2rem;
+}
+
+.cv-header h1 {
+    font-size: 3rem;
+    background: linear-gradient(to right, #ffffff, var(--text-muted));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.cv-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 4rem;
+}
+
+.cv-column h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--accent-primary);
+    border-bottom: 1px solid var(--glass-border);
+    padding-bottom: 0.5rem;
+}
+
+.cv-item {
+    margin-bottom: 2rem;
+}
+
+.cv-item h4 {
+    font-size: 1.2rem;
+    color: var(--text-main);
+}
+
+.cv-item span.date {
+    display: block;
+    font-size: 0.9rem;
+    color: var(--accent-secondary);
+    margin-bottom: 0.5rem;
+}
+
+.cv-item p,
+.cv-item ul {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+}
+
+.cv-item ul {
+    list-style-position: inside;
+    margin-top: 0.5rem;
+}
+
+/* Page Headers (About, Projects, Contact) */
+.page-header {
+    padding-top: 10rem;
+    padding-bottom: 2rem;
+    text-align: center;
+}
+
+.page-header h1 {
+    font-size: 3.5rem;
+    margin-bottom: 0.5rem;
+    background: linear-gradient(to right, #ffffff, var(--text-muted));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 /* Responsive */

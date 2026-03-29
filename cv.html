@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV & Resume | Eduard Leucea</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Inter:wght@400;500&display=swap"
+        rel="stylesheet">
+    <!-- CSS -->
+    <link rel="stylesheet" href="./gradient-bg.css">
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <div class="bg-overlay"></div>
+
+    <nav class="glass-nav">
+        <div class="nav-content">
+            <span class="logo">Brand.</span>
+            <button class="menu-toggle" aria-label="Toggle Menu">
+                <span class="line"></span>
+                <span class="line"></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Fullscreen Menu Overlay -->
+    <nav class="fullscreen-menu">
+        <ul class="fullscreen-nav-links">
+            <li><a href="./index.html">Home</a></li>
+            <li><a href="./about.html">About Me</a></li>
+            <li><a href="./projects.html">Projects</a></li>
+            <li><a href="./cv.html" class="active">CV</a></li>
+            <li><a href="./contact.html">Contact Me</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section class="cv-section">
+            <div class="cv-container glass-panel">
+                <div class="cv-header">
+                    <div>
+                        <h1>Eduard Leucea</h1>
+                        <p style="color: var(--text-muted); font-size: 1.1rem; margin-top: 0.5rem;">Application & AI
+                            Development Student</p>
+                    </div>
+                    <a href="./cv.pdf" target="_blank" class="btn btn-primary">Download CV (PDF)</a>
+                </div>
+
+                <div class="cv-grid">
+                    <div class="cv-column sidebar">
+                        <h3>Skills</h3>
+                        <div class="cv-item">
+                            <h4>Development</h4>
+                            <ul>
+                                <li>HTML / CSS / JavaScript</li>
+                                <li>React / Next.js</li>
+                                <li>Node.js</li>
+                                <li>Python</li>
+                            </ul>
+                        </div>
+                        <div class="cv-item">
+                            <h4>Design</h4>
+                            <ul>
+                                <li>UI / UX Design</li>
+                                <li>Figma</li>
+                                <li>Responsive Layouts</li>
+                            </ul>
+                        </div>
+
+                        <h3>Languages</h3>
+                        <div class="cv-item">
+                            <ul>
+                                <li>Dutch (Native)</li>
+                                <li>English (Fluent)</li>
+                                <li>French (Basic)</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="cv-column main-content">
+                        <h3>Education</h3>
+                        <div class="cv-item">
+                            <h4>Application & AI Development</h4>
+                            <span class="date">Present - Thomas More University of Applied Sciences</span>
+                            <p>Studying advanced application development, artificial intelligence logic, and building
+                                functional, aesthetic software architectures.</p>
+                        </div>
+
+                        <h3>Work Experience</h3>
+                        <div class="cv-item">
+                            <h4>Freelance Web Developer</h4>
+                            <span class="date">2023 - Present</span>
+                            <p>Designing and developing fully responsive portfolio websites and professional web
+                                applications for clients, focusing on clean aesthetics and optimized user experiences.
+                            </p>
+                        </div>
+                        <div class="cv-item">
+                            <h4>Placeholder Role</h4>
+                            <span class="date">2021 - 2023 - Placeholder Company</span>
+                            <p>Contributed to various tasks related to development and design within a fast-paced
+                                environment.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="glass-footer">
+        <p>&copy; 2026 Eduard Leucea. All rights reserved.</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        const menuToggle = document.querySelector('.menu-toggle');
+        const fullscreenMenu = document.querySelector('.fullscreen-menu');
+
+        if (menuToggle && fullscreenMenu) {
+            menuToggle.addEventListener('click', () => {
+                menuToggle.classList.toggle('active');
+                fullscreenMenu.classList.toggle('active');
+                document.body.classList.toggle('menu-open');
+            });
+        }
+    </script>
+</body>
+
+</html>
