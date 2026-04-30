@@ -497,61 +497,26 @@ main {
     border-radius: 22px;
     overflow: hidden;
     border: 1px solid rgba(255, 255, 255, 0.08);
-    background:
-        radial-gradient(circle at 50% 16%, rgba(254, 180, 123, 0.16), transparent 38%),
-        linear-gradient(160deg, rgba(255, 126, 95, 0.22) 0%, rgba(27, 30, 43, 0.92) 38%, rgba(10, 10, 15, 0.98) 100%);
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+    background: radial-gradient(circle at 50% 30%, rgba(255, 126, 95, 0.12) 0%, rgba(10, 10, 15, 0.95) 70%);
+    box-shadow: inset 0 2px 20px rgba(0, 0, 0, 0.5);
     transition: transform 0.45s ease, border-color 0.45s ease, box-shadow 0.45s ease;
-}
-
-.about-photo-frame::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    z-index: 0;
-    background-image:
-        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='136' height='136' viewBox='0 0 136 136'%3E%3Cg fill='none' stroke='rgba(255,255,255,0.24)' stroke-width='6' stroke-linecap='square'%3E%3Cpath d='M20 22H94'/%3E%3Cpath d='M20 22V112'/%3E%3Cpath d='M20 66H74'/%3E%3Cpath d='M20 112H94'/%3E%3Cpath d='M100 22V72'/%3E%3Cpath d='M100 82V112'/%3E%3C/g%3E%3Ccircle cx='100' cy='102' r='12' fill='rgba(254,180,123,0.2)'/%3E%3C/svg%3E");
-    background-size: 132px 132px;
-    background-position: center;
-    background-repeat: repeat;
-    opacity: 0.18;
-    transform: scale(1.02);
-    filter: drop-shadow(0 0 0 rgba(255, 126, 95, 0));
-    transition: opacity 0.45s ease, filter 0.45s ease, transform 0.45s ease;
 }
 
 .about-photo-frame::after {
     content: "";
     position: absolute;
-    inset: -12%;
+    inset: 0;
     z-index: 1;
-    background:
-        radial-gradient(circle at 50% 38%, rgba(255, 126, 95, 0.28), transparent 28%),
-        radial-gradient(circle at 52% 45%, rgba(254, 180, 123, 0.16), transparent 42%);
-    opacity: 0.35;
-    filter: blur(28px);
-    transform: scale(0.92);
-    transition: opacity 0.45s ease, transform 0.45s ease, filter 0.45s ease;
+    background: linear-gradient(180deg, transparent 60%, rgba(10, 10, 15, 0.95) 100%);
     pointer-events: none;
+    transition: opacity 0.45s ease;
 }
 
 .about-photo-card:hover .about-photo-frame {
     border-color: rgba(255, 255, 255, 0.14);
-    box-shadow:
-        inset 0 1px 0 rgba(255, 255, 255, 0.08),
-        0 22px 50px rgba(0, 0, 0, 0.28);
-}
-
-.about-photo-card:hover .about-photo-frame::before {
-    opacity: 0.3;
-    transform: scale(1.04);
-    filter: drop-shadow(0 0 14px rgba(255, 126, 95, 0.22));
-}
-
-.about-photo-card:hover .about-photo-frame::after {
-    opacity: 0.62;
-    transform: scale(1);
-    filter: blur(34px);
+    box-shadow: 
+        inset 0 2px 20px rgba(0, 0, 0, 0.6),
+        0 15px 40px rgba(0, 0, 0, 0.3);
 }
 
 .about-photo {
@@ -717,7 +682,8 @@ main {
 
 .projects-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: minmax(0, 1000px);
+    justify-content: center;
     gap: 2.5rem;
 }
 
@@ -725,15 +691,18 @@ main {
     padding: 0;
     overflow: hidden;
     display: flex;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
     flex-direction: column;
 }
 
 .project-card:hover {
-    transform: translateY(-10px);
+    transform: translateY(-8px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
 }
 
 .project-image {
-    height: 200px;
+    height: auto;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     width: 100%;
 }
 
@@ -1749,3 +1718,9 @@ main {
         flex-direction: column;
     }
 }
+/ *  
+ C V  
+ P a g e  
+ S t y l e s  
+ * /  
+ 
