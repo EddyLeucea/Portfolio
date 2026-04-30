@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CV & Resume | Eduard Leucea</title>
+    <title>CV | Eduard Leucea</title>
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,6 +14,7 @@
     <!-- CSS -->
     <link rel="stylesheet" href="./gradient-bg.css">
     <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./cv-style.css">
 </head>
 
 <body>
@@ -21,7 +22,7 @@
 
     <nav class="glass-nav">
         <div class="nav-content">
-            <span class="logo">Brand.</span>
+            <span class="logo">Eddy.</span>
             <button class="menu-toggle" aria-label="Toggle Menu">
                 <span class="menu-divider"></span>
                 <span class="menu-label">MENU</span>
@@ -44,73 +45,123 @@
         </ul>
     </nav>
 
-    <main>
-        <section class="cv-section">
+    <main class="cv-page">
+        <section class="page-header" style="text-align: center; margin-bottom: 3rem;">
+            <h1>Curriculum Vitae</h1>
+            <div class="underline"></div>
+            <div style="margin-top: 2rem;">
+                <button onclick="window.print()" class="btn btn-primary" style="font-family: var(--font-heading); font-size: 1rem;">Download PDF Version</button>
+            </div>
+        </section>
+
+        <section class="cv-wrapper" style="padding: 0 2rem;">
             <div class="cv-container glass-panel">
-                <div class="cv-header">
-                    <div>
-                        <h1>Eduard Leucea</h1>
-                        <p style="color: var(--text-muted); font-size: 1.1rem; margin-top: 0.5rem;">Application & AI
-                            Development Student</p>
+                
+                <!-- Sidebar -->
+                <div class="cv-sidebar">
+                    <div class="cv-profile" style="text-align: center; margin-bottom: 2rem;">
+                        <div style="width: 120px; height: 120px; border-radius: 50%; overflow: hidden; margin: 0 auto 1.5rem auto; border: 3px solid var(--accent-secondary); box-shadow: 0 0 20px rgba(254, 180, 123, 0.4);">
+                            <img src="./AboutMePhoto.png" alt="Eduard Leucea" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <h2 style="font-size: 2rem; margin-bottom: 0.5rem; font-family: var(--font-heading);">Eduard Leucea</h2>
+                        <p style="color: var(--accent-secondary); font-size: 1.1rem; margin-bottom: 1.5rem;">Application & AI Development Student</p>
+                        <p style="color: var(--text-muted); line-height: 1.6; text-align: left;">Student met een sterke interesse in de technische kant van intelligente systemen, AI en moderne softwarearchitectuur.</p>
                     </div>
-                    <a href="./EDUARD LEUCEA.pdf" target="_blank" class="btn btn-primary">Download CV (PDF)</a>
+
+                    <div class="cv-sidebar-section">
+                        <h3 class="cv-section-title">Contact</h3>
+                        <div class="cv-contact-item">
+                            <span>📍 Turnhout, Belgium</span>
+                        </div>
+                        <div class="cv-contact-item">
+                            <span>📧 <a href="mailto:leuceaeduard@gmail.com" style="text-decoration: underline;">leuceaeduard@gmail.com</a></span>
+                        </div>
+                    </div>
+
+                    <div class="cv-sidebar-section">
+                        <h3 class="cv-section-title">Languages</h3>
+                        <ul style="list-style: none; color: var(--text-muted); line-height: 2;">
+                            <li><strong>Dutch:</strong> Native</li>
+                            <li><strong>English:</strong> Fluent</li>
+                            <li><strong>French:</strong> Basic</li>
+                        </ul>
+                    </div>
+
+                    <div class="cv-sidebar-section">
+                        <h3 class="cv-section-title">Soft Skills</h3>
+                        <div class="cv-skills-grid">
+                            <span class="cv-skill-tag">Teamwork</span>
+                            <span class="cv-skill-tag">Communication</span>
+                            <span class="cv-skill-tag">Problem Solving</span>
+                            <span class="cv-skill-tag">Client-focused</span>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="cv-grid">
-                    <div class="cv-column sidebar">
-                        <h3>Skills</h3>
-                        <div class="cv-item">
-                            <h4>Development</h4>
-                            <ul>
-                                <li>HTML / CSS / JavaScript</li>
-                                <li>React / Next.js</li>
-                                <li>Node.js</li>
-                                <li>Python</li>
-                            </ul>
-                        </div>
-                        <div class="cv-item">
-                            <h4>Design</h4>
-                            <ul>
-                                <li>UI / UX Design</li>
-                                <li>Figma</li>
-                                <li>Responsive Layouts</li>
-                            </ul>
-                        </div>
-
-                        <h3>Languages</h3>
-                        <div class="cv-item">
-                            <ul>
-                                <li>Dutch (Native)</li>
-                                <li>English (Fluent)</li>
-                                <li>French (Basic)</li>
-                            </ul>
+                <!-- Main Content -->
+                <div class="cv-main">
+                    
+                    <div class="cv-main-section">
+                        <h3 class="cv-section-title">Education</h3>
+                        <div class="cv-timeline">
+                            <div class="cv-timeline-item">
+                                <h4 class="cv-item-title">Bachelor Application & AI Development</h4>
+                                <div class="cv-item-subtitle">Thomas More Hogeschool, Geel</div>
+                                <span class="cv-item-date">2024 - Present</span>
+                                <p class="cv-item-desc">Focus op geavanceerde applicatieontwikkeling, databanken, netwerken en artificial intelligence. Praktijkgerichte opleiding gericht op het bouwen van functionele en moderne softwareoplossingen.</p>
+                            </div>
+                            <div class="cv-timeline-item">
+                                <h4 class="cv-item-title">Secundair Onderwijs (IT)</h4>
+                                <div class="cv-item-subtitle">Secundair Onderwijs</div>
+                                <span class="cv-item-date">Graduated 2024</span>
+                                <p class="cv-item-desc">Na een switch vanuit de richting economie succesvol de overstap gemaakt naar IT. Hier de basis gelegd voor programmeerlogica en computersystemen, waarna ik mijn passie in deze sector heb gevonden.</p>
+                            </div>
                         </div>
                     </div>
 
-                    <div class="cv-column main-content">
-                        <h3>Education</h3>
-                        <div class="cv-item">
-                            <h4>Application & AI Development</h4>
-                            <span class="date">Present - Thomas More University of Applied Sciences</span>
-                            <p>Studying advanced application development, artificial intelligence logic, and building
-                                functional, aesthetic software architectures.</p>
+                    <div class="cv-main-section">
+                        <h3 class="cv-section-title">Technical Skills</h3>
+                        
+                        <div class="cv-skills-group">
+                            <h4>Frontend Development & UI</h4>
+                            <div class="cv-skills-grid">
+                                <span class="cv-skill-tag">HTML</span>
+                                <span class="cv-skill-tag">CSS</span>
+                                <span class="cv-skill-tag">JavaScript</span>
+                                <span class="cv-skill-tag">React</span>
+                                <span class="cv-skill-tag">Alpine.js</span>
+                                <span class="cv-skill-tag">Tailwind CSS</span>
+                                <span class="cv-skill-tag">Bootstrap</span>
+                            </div>
                         </div>
 
-                        <h3>Work Experience</h3>
-                        <div class="cv-item">
-                            <h4>Freelance Web Developer</h4>
-                            <span class="date">2023 - Present</span>
-                            <p>Designing and developing fully responsive portfolio websites and professional web
-                                applications for clients, focusing on clean aesthetics and optimized user experiences.
-                            </p>
+                        <div class="cv-skills-group">
+                            <h4>Backend & Frameworks</h4>
+                            <div class="cv-skills-grid">
+                                <span class="cv-skill-tag">PHP</span>
+                                <span class="cv-skill-tag">Laravel</span>
+                                <span class="cv-skill-tag">Livewire</span>
+                                <span class="cv-skill-tag">Python</span>
+                                <span class="cv-skill-tag">Java</span>
+                                <span class="cv-skill-tag">C# (.NET)</span>
+                            </div>
                         </div>
-                        <div class="cv-item">
-                            <h4>Placeholder Role</h4>
-                            <span class="date">2021 - 2023 - Placeholder Company</span>
-                            <p>Contributed to various tasks related to development and design within a fast-paced
-                                environment.</p>
+
+                        <div class="cv-skills-group">
+                            <h4>Databases, Tools & Cloud</h4>
+                            <div class="cv-skills-grid">
+                                <span class="cv-skill-tag">MySQL</span>
+                                <span class="cv-skill-tag">SQLite</span>
+                                <span class="cv-skill-tag">MongoDB</span>
+                                <span class="cv-skill-tag">SQL</span>
+                                <span class="cv-skill-tag">Git</span>
+                                <span class="cv-skill-tag">Docker</span>
+                                <span class="cv-skill-tag">Azure</span>
+                                <span class="cv-skill-tag">Cisco Networking</span>
+                            </div>
                         </div>
                     </div>
+
                 </div>
             </div>
         </section>

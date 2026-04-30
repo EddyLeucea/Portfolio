@@ -1,0 +1,313 @@
+/* CV Page Styles */
+.cv-page {
+    padding-top: 8rem;
+    padding-bottom: 5rem;
+}
+
+.cv-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 3rem;
+    display: grid;
+    grid-template-columns: 350px 1fr;
+    gap: 4rem;
+}
+
+@media (max-width: 900px) {
+    .cv-container {
+        grid-template-columns: 1fr;
+        padding: 2rem;
+    }
+}
+
+.cv-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+    border-right: 1px solid rgba(255, 255, 255, 0.08);
+    padding-right: 3rem;
+}
+
+@media (max-width: 900px) {
+    .cv-sidebar {
+        border-right: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        padding-right: 0;
+        padding-bottom: 3rem;
+    }
+}
+
+.cv-main {
+    display: flex;
+    flex-direction: column;
+    gap: 3.5rem;
+}
+
+.cv-sidebar-section strong {
+    color: white;
+}
+
+.cv-section-title {
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    color: var(--accent-secondary);
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.cv-section-title::after {
+    content: "";
+    height: 1px;
+    flex-grow: 1;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.1), transparent);
+}
+
+.cv-timeline {
+    border-left: 2px solid rgba(255, 255, 255, 0.1);
+    padding-left: 2.5rem;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.cv-timeline-item {
+    position: relative;
+}
+
+.cv-timeline-item::before {
+    content: "";
+    position: absolute;
+    left: -2.9rem;
+    top: 0.2rem;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: var(--bg-dark);
+    border: 2px solid var(--accent-secondary);
+    box-shadow: 0 0 10px rgba(254, 180, 123, 0.5);
+}
+
+.cv-item-title {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-bottom: 0.3rem;
+    color: white;
+}
+
+.cv-item-subtitle {
+    color: var(--text-muted);
+    font-size: 1.05rem;
+    margin-bottom: 0.8rem;
+    font-weight: 400;
+}
+
+.cv-item-date {
+    color: var(--accent-primary);
+    font-size: 0.85rem;
+    margin-bottom: 1rem;
+    display: inline-block;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.cv-item-desc {
+    color: var(--text-muted);
+    line-height: 1.8;
+}
+
+.cv-skills-group h4 {
+    color: white;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.cv-skills-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    margin-bottom: 1.5rem;
+}
+
+.cv-skill-tag {
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.8);
+    transition: all 0.3s ease;
+}
+
+.cv-skill-tag:hover {
+    background: rgba(255, 126, 95, 0.1);
+    border-color: var(--accent-primary);
+    color: white;
+    transform: translateY(-2px);
+}
+
+.cv-contact-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: var(--text-muted);
+    margin-bottom: 1rem;
+    font-size: 1.05rem;
+}
+
+/* Print Styles for PDF Generation (Clean White A4 Layout) */
+@media print {
+    @page {
+        size: A4 portrait;
+        margin: 0;
+    }
+
+    * {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+
+    body, html {
+        width: 210mm;
+        height: 297mm;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: white !important;
+        color: black !important;
+    }
+
+    .cv-page {
+        padding: 0 !important;
+        margin: 0 !important;
+        width: 100%;
+        height: 100%;
+        box-sizing: border-box;
+        background-color: white !important;
+        background-image: none !important;
+        color: black !important;
+    }
+    
+    .bg-overlay, .glass-nav, .fullscreen-menu, .glass-footer, .page-header, .menu-toggle {
+        display: none !important;
+    }
+
+    .cv-wrapper {
+        padding: 10mm !important;
+        height: 100%;
+        box-sizing: border-box;
+    }
+
+    .cv-container {
+        padding: 0 !important;
+        grid-template-columns: 220px 1fr !important;
+        gap: 1.5rem !important;
+        box-shadow: none !important;
+        border: none !important;
+        background: none !important;
+        height: 100%;
+        max-width: none !important;
+        margin: 0 !important;
+    }
+
+    .cv-sidebar {
+        padding-right: 1.5rem !important;
+        gap: 1.5rem !important;
+        border-right: 1px solid #ccc !important;
+    }
+
+    .cv-main {
+        gap: 2rem !important;
+    }
+
+    .cv-profile h2, .cv-item-title, .cv-skills-group h4 {
+        font-size: 1.6rem !important;
+        margin-bottom: 0.2rem !important;
+        color: black !important;
+    }
+    
+    .cv-sidebar-section strong {
+        color: black !important;
+    }
+
+    .cv-item-title {
+        font-size: 1.15rem !important;
+    }
+
+    .cv-skills-group h4 {
+        font-size: 0.95rem !important;
+        margin-bottom: 0.5rem !important;
+    }
+
+    .cv-profile p {
+        font-size: 0.95rem !important;
+        margin-bottom: 1rem !important;
+        color: #333 !important;
+    }
+
+    .cv-section-title {
+        font-size: 1.1rem !important;
+        margin-bottom: 1rem !important;
+        color: #222 !important;
+    }
+    
+    .cv-section-title::after {
+        background: #ccc !important;
+    }
+
+    .cv-item-subtitle, .cv-item-desc, .cv-contact-item, .cv-sidebar ul li {
+        color: #444 !important;
+    }
+
+    .cv-timeline {
+        gap: 1.5rem !important;
+        padding-left: 1.5rem !important;
+        border-left: 2px solid #ccc !important;
+    }
+    
+    .cv-timeline-item::before {
+        background: white !important;
+        border-color: black !important;
+        box-shadow: none !important;
+    }
+
+    .cv-item-desc {
+        font-size: 0.85rem !important;
+        line-height: 1.4 !important;
+        margin-bottom: 0 !important;
+    }
+
+    .cv-skills-grid {
+        gap: 0.5rem !important;
+        margin-bottom: 1rem !important;
+    }
+
+    .cv-skill-tag {
+        padding: 0.25rem 0.6rem !important;
+        font-size: 0.8rem !important;
+        border-color: #ccc !important;
+        color: black !important;
+        background: white !important;
+    }
+
+    .cv-contact-item {
+        font-size: 0.9rem !important;
+        margin-bottom: 0.5rem !important;
+    }
+
+    .cv-profile div {
+        width: 100px !important;
+        height: 100px !important;
+        margin-bottom: 1rem !important;
+    }
+    
+    a {
+        text-decoration: none !important;
+        color: inherit !important;
+    }
+}
